@@ -178,6 +178,15 @@ g++ -std=c++17 -g -o SudokuSolver SudokuSolver.cpp Game.cpp Grid.cpp PossibleGri
 - If you hit C++ compilation errors, confirm g++ supports C++17: `g++ --version`
 - On Windows with pthreads issues, verify your MinGW/Cygwin threading flags
 
+## Improvement Roadmap
+
+- [ ] Standardize input format across all three algorithms
+- [ ] Refactor for consistent code structure and unified Sudoku output formatting
+- [ ] Optimize solver efficiency and reduce thread overhead
+- [ ] Expand benchmarking with recorded sequential vs. parallel runtime comparisons
+- [ ] Update report to reflect post-optimization results
+- [ ] Clean up and consolidate branch structure
+
 ## Contributors
 
 | Name | GitHub |
