@@ -4,15 +4,15 @@
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Parallel Computing](https://img.shields.io/badge/Parallel_Computing-pthreads-informational?style=for-the-badge)
 
-A comparative study of three Sudoku solving algorithms—each implemented in both **sequential** and **parallelized** forms—to benchmark how concurrency affects performance across varying board sizes and difficulty levels.
+A comparative study of three Sudoku solving algorithms, each implemented in both **sequential** and **parallelized** forms to benchmark how concurrency affects performance across varying board sizes, difficulty levels, and algorithms. 
 
-Boards tested: **9×9**, **16×16**, and **25×25** at easy, medium, and hard difficulties.
 
-📄 [Read the Report](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/attachments/Parallelized_Sudoku_Solvers.pdf)
+- Boards Sizes: **9×9**, **16×16**, and **25×25**
+- Difficulties: **Easy**, **Medium**, and **Hard**
 
-⭐ [View the Slides](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/attachments/Parallelized_Sudoku_Slides.pdf)
+📄 [Read the Report](attachments/Parallelized_Sudoku_Solvers.pdf) ⭐ [View the Slides](attachments/Parallelized_Sudoku_Slides.pdf) 📁 [View All Input Files](data/)
 
-## Algorithms
+### Algorithms
 
 | # | Algorithm | Language | Sequential | Parallelized |
 |---|-----------|----------|------------|--------------|
@@ -20,7 +20,7 @@ Boards tested: **9×9**, **16×16**, and **25×25** at easy, medium, and hard di
 | 2 | [Dancing Links (Algorithm X)](#2-dancing-links) | Java | ✅ | ✅ |
 | 3 | [Propagation-Cross-Search](#3-propagation-cross-search) | C++ | ✅ | ✅ |
 
-## Key Challenges
+### Key Challenges
 
 - **Thread Overhead vs. Speedup:** Parallelizing an already-fast sequential solver can introduce more overhead than benefit, especially on smaller boards.
 - **Synchronization:** Managing shared state, avoiding deadlocks, and preventing thread conflicts across backtracking-based search trees.
@@ -36,36 +36,39 @@ Boards tested: **9×9**, **16×16**, and **25×25** at easy, medium, and hard di
 | Git | `git --version` | Cloning the repo |
 
 <details>
-<summary><strong> Installation Instructions (Click to Expand)</strong></summary>
+<summary><strong>Installation Instructions</strong></summary>
 
-### g++ (GCC)
+#### g++ (GCC)
 - **Linux:** `sudo apt-get install g++`
 - **macOS:** `xcode-select --install`
-- **Windows:** Install [MinGW](https://www.mingw-w64.org/) or [Cygwin](https://cygwin.com/)
+- *Windows:** Install [MinGW](https://www.mingw-w64.org/) or [Cygwin](https://cygwin.com/)
 
-### Git
+#### Git
 - **Linux:** `sudo apt-get install git`
 - **macOS:** `brew install git`
 - **Windows:** [Git for Windows](https://gitforwindows.org/)
 
-### Java
+#### Java
 - **Linux:** `sudo apt-get install default-jdk`
 - **macOS:** `brew install openjdk`
 - **Windows:** [Oracle JDK](https://www.oracle.com/java/technologies/downloads/) or [AdoptOpenJDK](https://adoptium.net/)
 
-### Clang
+#### Clang
 - **Linux:** `sudo apt-get install clang`
 - **macOS:** `brew install llvm`
 - **Windows:** [LLVM](https://releases.llvm.org/download.html)
 
 </details>
 
-### Clone the Repository
+<details>
+<summary><strong>Clone the Repo</strong></summary>
 
 ```sh
 git clone https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers.git
 cd Parallelized-Sudoku-Solvers
 ```
+
+</details>
 
 ## Algorithms Implemented
 
@@ -75,9 +78,10 @@ A backtracking search that tries every possible number placement, undoing and re
 
 **Parallelization Strategy:** Multiple threads each explore separate subtrees of the search space, with the first thread to find a valid solution triggering a shared completion flag.
 
-- [Sequential branch](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/BruteForceUsingBacktracking)
-- [Parallelized branch](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/ParallelizedBruteForce)
-- Based on: [bryanesmith/Sudoku-solver](https://github.com/bryanesmith/Sudoku-solver/blob/master/SudokuPuzzle.cpp)
+- [Sequential & Parallelized Branch](BruteForce/)
+- Adapted: [bryanesmith/Sudoku-solver](https://github.com/bryanesmith/Sudoku-solver/blob/master/SudokuPuzzle.cpp)
+
+---
 
 ### 2. Dancing Links
 
@@ -85,9 +89,9 @@ An implementation of Donald Knuth's Algorithm X using the Dancing Links (DLX) te
 
 **Parallelization Strategy:** An initial BFS generates `n` partial board states, one per thread. Each thread independently runs the full DLX solver on its board; the first to find a solution sets a shared flag and all threads return.
 
-- [Sequential implementation](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/main/DancingLinks/sequential)
-- [Parallelized implementation](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/main/DancingLinks/parallel)
-- Based on: [gkaranikas/dancing-links](https://github.com/gkaranikas/dancing-links/tree/master)
+- [Sequential Implementation](DancingLinks/sequential)
+- [Parallelized Implementation](DancingLinks/parallel)
+- Adapted: [gkaranikas/dancing-links](https://github.com/gkaranikas/dancing-links/tree/master)
 
 #### Key Source Files
 
@@ -98,7 +102,7 @@ An implementation of Donald Knuth's Algorithm X using the Dancing Links (DLX) te
 | `DancingLinkObject.java` | DLX node with directional links and column reference |
 | `DancingLinkSolver.java` | Recursive backtracking search; selects column with fewest possibilities first |
 | `ExactMatrix.java` | Converts Sudoku grid to exact cover matrix |
-| `Sudoku.java` | Entry point — reads input, initializes matrix, invokes solver |
+| `Sudoku.java` | Entry point (reads input, initializes matrix, invokes solver) |
 
 #### Run (Sequential)
 
@@ -116,7 +120,7 @@ javac Sudoku.java
 java Sudoku <FILE_NAME> <NUM_THREADS>
 ```
 
-View all input files in the [data directory](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/main/data).
+---
 
 <details>
 <summary><strong>Sample Output (16×16 Solved Board)</strong></summary>
@@ -155,8 +159,8 @@ A C++ solver combining three progressive techniques before falling back to searc
 
 **Parallelization Points:** Candidate checks, possible-position scanning, and DFS (on hard boards) are conditionally parallelized across the `Game` and `PossibleGrid` components.
 
-- [Sequential implementation](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/PropagateCrossSearch/sequential)
-- [Parallelized implementation](https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers/tree/PropagateCrossSearch/parallel)
+- [Sequential Implementation](PropagateCrossSearch/sequential)
+- [Parallelized Implementation](PropagateCrossSearch/parallel)
 - Based on: [anthemEdge/Sudoku-Solver](https://github.com/anthemEdge/Sudoku-Solver)
 
 #### Run
