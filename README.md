@@ -9,7 +9,7 @@ A comparative study of three Sudoku solving algorithms, each implemented in both
 - Board Sizes: **9×9**, **16×16**, and **25×25**
 - Difficulties: **Easy**, **Medium**, and **Hard**
 
-📄 [Read the Report](attachments/Parallelized_Sudoku_Solvers.pdf) ⭐ [View the Slides](attachments/Parallelized_Sudoku_Slides.pdf) 📁 [View All Input Files](data/)
+📄 [Read the Report](attachments/Parallelized_Sudoku_Solvers.pdf) 📁 [View All Input Files](data/)
 
 ### Algorithms
 
