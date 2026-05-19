@@ -120,8 +120,6 @@ javac Sudoku.java
 java Sudoku <FILE_NAME> <NUM_THREADS>
 ```
 
----
-
 <details>
 <summary><strong>Sample Output (16×16 Solved Board)</strong></summary>
 
@@ -147,6 +145,8 @@ Time taken: 283 milliseconds
 ...
 ```
 
+---
+
 </details>
 
 ### 3. Propagation-Cross-Search
@@ -161,7 +161,7 @@ A C++ solver combining three progressive techniques before falling back to searc
 
 - [Sequential Implementation](PropagateCrossSearch/sequential)
 - [Parallelized Implementation](PropagateCrossSearch/parallel)
-- Based on: [anthemEdge/Sudoku-Solver](https://github.com/anthemEdge/Sudoku-Solver)
+- Adapted: [anthemEdge/Sudoku-Solver](https://github.com/anthemEdge/Sudoku-Solver)
 
 #### Run
 
@@ -186,6 +186,6 @@ g++ -std=c++17 -g -o SudokuSolver SudokuSolver.cpp Game.cpp Grid.cpp PossibleGri
 
 | Name | GitHub |
 |------|--------|
-| Soleil Cordray | [@AbdullahALX](https://github.com/soleil-cordray) |
+| Soleil Cordray | [@aoleil-cordray](https://github.com/soleil-cordray) |
 | JohnMichael Kane | [@johnmichael-kane](https://github.com/johnmichael-kane) |
 | Abdullah AL Hinaey | [@AbdullahALX](https://github.com/AbdullahALX) |
