@@ -6,8 +6,7 @@
 
 A comparative study of three Sudoku solving algorithms, each implemented in both **sequential** and **parallelized** forms to benchmark how concurrency affects performance across varying board sizes, difficulty levels, and algorithms. 
 
-
-- Boards Sizes: **9×9**, **16×16**, and **25×25**
+- Board Sizes: **9×9**, **16×16**, and **25×25**
 - Difficulties: **Easy**, **Medium**, and **Hard**
 
 📄 [Read the Report](attachments/Parallelized_Sudoku_Solvers.pdf) ⭐ [View the Slides](attachments/Parallelized_Sudoku_Slides.pdf) 📁 [View All Input Files](data/)
@@ -41,7 +40,7 @@ A comparative study of three Sudoku solving algorithms, each implemented in both
 #### g++ (GCC)
 - **Linux:** `sudo apt-get install g++`
 - **macOS:** `xcode-select --install`
-- *Windows:** Install [MinGW](https://www.mingw-w64.org/) or [Cygwin](https://cygwin.com/)
+- **Windows:** Install [MinGW](https://www.mingw-w64.org/) or [Cygwin](https://cygwin.com/)
 
 #### Git
 - **Linux:** `sudo apt-get install git`
@@ -60,15 +59,12 @@ A comparative study of three Sudoku solving algorithms, each implemented in both
 
 </details>
 
-<details>
-<summary><strong>Clone the Repo</strong></summary>
+#### Clone the Repo
 
 ```sh
 git clone https://github.com/johnmichael-kane/Parallelized-Sudoku-Solvers.git
 cd Parallelized-Sudoku-Solvers
 ```
-
-</details>
 
 ## Algorithms Implemented
 
@@ -145,16 +141,16 @@ Time taken: 283 milliseconds
 ...
 ```
 
----
-
 </details>
+
+---
 
 ### 3. Propagation-Cross-Search
 
 A C++ solver combining three progressive techniques before falling back to search:
 
 1. **Constraint Propagation:** Eliminate candidates using row/column/box constraints
-2. **Cross-Referencin:L** Identify forced placements by intersecting possibilities
+2. **Cross-Referencing:** Identify forced placements by intersecting possibilities
 3. **Depth-First Search:** applied only when propagation can't resolve remaining cells
 
 **Parallelization Points:** Candidate checks, possible-position scanning, and DFS (on hard boards) are conditionally parallelized across the `Game` and `PossibleGrid` components.
@@ -186,6 +182,6 @@ g++ -std=c++17 -g -o SudokuSolver SudokuSolver.cpp Game.cpp Grid.cpp PossibleGri
 
 | Name | GitHub |
 |------|--------|
-| Soleil Cordray | [@aoleil-cordray](https://github.com/soleil-cordray) |
+| Soleil Cordray | [@soleil-cordray](https://github.com/soleil-cordray) |
 | JohnMichael Kane | [@johnmichael-kane](https://github.com/johnmichael-kane) |
 | Abdullah AL Hinaey | [@AbdullahALX](https://github.com/AbdullahALX) |
